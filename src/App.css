@@ -1,3 +1,25 @@
 .App {
 
 }
+
+.category-button {
+    text-decoration: none;
+  }
+
+.selected {
+    background:blue;
+}
+
+.hidden {
+    display: none;
+}
+
+.category-item{
+    text-decoration: none;
+}
+.categories {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+}
