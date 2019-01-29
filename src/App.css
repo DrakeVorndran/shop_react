@@ -1,25 +1,61 @@
-.App {
-
+.App, html {
+    background: #EEE;
 }
 
 .category-button {
     text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background: #F9F9F9;
   }
 
 .selected {
-    background:blue;
+    background: #DDD;
+}
+
+.category-button:hover {
+    background: #EEF;
+}
+
+.category-button.selected:hover {
+    background: #DDE;
 }
 
 .hidden {
     display: none;
 }
 
-.category-item{
-    text-decoration: none;
+.category-item {
+
 }
 .categories {
     list-style-type: none;
-
     display: flex;
-    flex-direction: row;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+.item {
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;;
+}
+
+.item .item-name {
+    text-align: center;
+}
+
+.item .item-cat {
+    color: #555;
+    text-align: right;
+    font-size: 0.7em;
 }

@@ -5,6 +5,8 @@ import './App.css';
 import CategoryButton from './CategoryButton'
 import Item from './Item';
 
+const pastelColors = ['#e1f7d5','#ffbdbd','#c9c9ff','#f1cbff']
+
 class App extends Component {
 
   constructor(props) {
@@ -13,11 +15,13 @@ class App extends Component {
     this.state = {
       categories: [],
     }
+    console.log(this.state.colors)
   }
 
   getCategories() {
-    return categories.map((cat) => <li className="category-item" key={cat}><CategoryButton state={this.state.categories} cat={cat} onClick={() => this.handleClick(cat)}/></li>)
+    return categories.map((cat) => <li className="category-item" key={cat}><CategoryButton state={this.state.categories} cat={cat} onClick={() => this.handleClick(cat)} color={pastelColors[categories.indexOf(cat)%pastelColors.length]} /></li>)
   }
+
 
   handleClick(cat) {
     let currentList = this.state.categories
@@ -41,7 +45,7 @@ class App extends Component {
     return items.map((item) => {
       return (
         <li key={item.id}>
-        <Item item={item} cat={this.state.categories}/>
+        <Item item={item} color={pastelColors[categories.indexOf(item.category)%pastelColors.length]}/>
         </li>
       )
     })
@@ -50,15 +54,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <p>the current selection is: {this.state.categories.map((cat) => cat+', ')}</p>
 
-        <h1>Show products here</h1>
+        <h1>Reactive item shop</h1>
 
         <ul className="categories">
           {this.getCategories()}
         </ul>
 
-        <ul>
+        <ul className="items">
           {this.getInventory()}
         </ul>
 
