@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   getCategories() {
-    return categories.map((cat) => <li className="category-item" key={cat}><CategoryButton state={this.state.categories} cat={cat} onClick={() => this.handleClick(cat)} color={pastelColors[categories.indexOf(cat)%pastelColors.length]} /></li>)
+    return categories.map((cat) => <li className="category-item" key={cat}><CategoryButton state={this.state.categories} cat={cat} onClick={() => this.handleClick(cat)} color={this.colors[categories.indexOf(cat)%this.colors.length]} /></li>)
   }
 
 
