@@ -5,7 +5,6 @@ import './App.css';
 import CategoryButton from './CategoryButton'
 import Item from './Item';
 
-const pastelColors = ['#e1f7d5','#ffbdbd','#c9c9ff','#f1cbff']
 
 class App extends Component {
 
@@ -16,6 +15,14 @@ class App extends Component {
       categories: [],
     }
     console.log(this.state.colors)
+
+    const step = 360 / categories.length
+    this.colors = []
+    for (let i = 0; i < 360; i += step) {
+      this.colors.push(`hsl(${i}, 50%, 70%)`)
+    }
+    console.log(this.colors)
+
   }
 
   getCategories() {
@@ -45,7 +52,7 @@ class App extends Component {
     return items.map((item) => {
       return (
         <li key={item.id}>
-        <Item item={item} color={pastelColors[categories.indexOf(item.category)%pastelColors.length]}/>
+        <Item item={item} color={this.colors[categories.indexOf(item.category)%this.colors.length]}/>
         </li>
       )
     })

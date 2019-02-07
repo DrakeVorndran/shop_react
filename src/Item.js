@@ -2,6 +2,7 @@ import React from 'react'
 
 const Item = (props) => {
     const style = {background: props.color}
+    console.log(props.color)
     return(
         // className={props.cat===props.item.category?'':'hidden'}
         <div className="item" style={style}>
